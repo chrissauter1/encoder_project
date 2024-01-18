@@ -45,20 +45,23 @@ class Test_encoder(unittest.TestCase):
         self.assertEqual(dec, testinput, "Decoded text not same as input")
         
         
-    def test_setting_custom_seed(self):
+    def test_setting_custom_passphrase(self):
         
-        # Test if custom seed setting works
+        # Test if custom passphrase setting works
         
         testinput = 'Holla die Waldfee'
-        customseed = 123
         
-        e1 = MyEncoder.Encoder(customseed)
-        enc_e1 = e1.encode(testinput)
+        for pw in [123, 'Password', 12.4]:
         
-        e2 = MyEncoder.Encoder(customseed)
-        dec_e2 = e2.decode(enc_e1)
-        
-        self.assertEqual(dec_e2, testinput, "Custom seed not working")
+            with self.subTest(pw):
+                
+                e1 = MyEncoder.Encoder(pw)
+                enc_e1 = e1.encode(testinput)
+                
+                e2 = MyEncoder.Encoder(pw)
+                dec_e2 = e2.decode(enc_e1)
+
+                self.assertEqual(dec_e2, testinput, "Custom seed not working")
         
 
 unittest.main()
