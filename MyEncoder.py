@@ -38,16 +38,17 @@ def generate_random_number():
 
 
 class Encoder:
+    """
+    
+    """
     
     def __init__(self, seed=None):  # SEED AS OPTIONAL INPUT???
+    
         if seed is None:
             self.rand_seed = generate_random_number()
         else:
             self.rand_seed = seed
-        self.set_attributes()
-        
-        
-    def set_attributes(self):
+
         self.rng = np.random.default_rng(self.rand_seed)
         self.all_chars = string.printable
         self.indices_plain = np.arange(len(self.all_chars)) # 0 to 99
@@ -60,11 +61,6 @@ class Encoder:
         for char in txt:
             character_index.append(self.all_chars.rfind(char))
         return character_index
-        
-    
-    def set_seed(self, seed):
-        self.rand_seed = seed
-        self.set_attributes()
         
     
     def encode(self, txt):
