@@ -52,12 +52,10 @@ class Test_encoder(unittest.TestCase):
         testinput = 'Holla die Waldfee'
         customseed = 123
         
-        e1 = MyEncoder.Encoder()
-        e1.set_seed(customseed)
+        e1 = MyEncoder.Encoder(customseed)
         enc_e1 = e1.encode(testinput)
         
-        e2 = MyEncoder.Encoder()
-        e2.set_seed(customseed)
+        e2 = MyEncoder.Encoder(customseed)
         dec_e2 = e2.decode(enc_e1)
         
         self.assertEqual(dec_e2, testinput, "Custom seed not working")

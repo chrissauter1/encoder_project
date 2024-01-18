@@ -15,6 +15,8 @@ Takes an input (string) and encodes the imput. Can also decode.
 import numpy as np
 import string
 import time
+import sys
+
 
 
 def generate_random_number():
@@ -37,20 +39,25 @@ def generate_random_number():
 
 
 
+
+# TODO: use a passphrase to encode
+# TODO: add comand line functionality
 class Encoder:
     """
     
     """
     
-    def __init__(self, seed=None):  # SEED AS OPTIONAL INPUT???
+    def __init__(self, passphrase=None):  # SEED AS OPTIONAL INPUT???
     
-        if seed is None:
+        self.all_chars = string.printable
+    
+        if passphrase in [None, '']:
             self.rand_seed = generate_random_number()
         else:
-            self.rand_seed = seed
+            self.rand_seed = self.get_character_index(str(passphrase))
 
         self.rng = np.random.default_rng(self.rand_seed)
-        self.all_chars = string.printable
+        
         self.indices_plain = np.arange(len(self.all_chars)) # 0 to 99
         self.indices_shuffled = self.rng.permuted(self.indices_plain)
         self.indices_unshuffled = np.argsort(self.indices_shuffled)
@@ -77,4 +84,18 @@ class Encoder:
         for i in txt_indices_encoded:
             txt_decoded += self.all_chars[self.indices_unshuffled[i]]
         return txt_decoded
+
+
+
+def main():
+    print('Initializing random Encoder..')
+    passphrase = input("Add passphrase [Press Enter for random encoder]: ")
+    enc = Encoder(passphrase)
+    txt = input("Add text: ")
+    txt_enc = enc.encode(txt)
+    print(f'Encoded text: {txt_enc}')
+
+
+if __name__ == '__main__':
+    main()
 
