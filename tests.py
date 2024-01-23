@@ -14,7 +14,7 @@ class Test_encoder(unittest.TestCase):
     
     def test_encoding(self):
         
-        # Is encoded text different?'
+        # Is encoded text different?
         
         testinput = 'Holla die Waldfee'
         e = MyEncoder.Encoder()

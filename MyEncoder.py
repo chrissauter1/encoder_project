@@ -15,7 +15,6 @@ Takes an input (string) and encodes the imput. Can also decode.
 import numpy as np
 import string
 import time
-import sys
 
 
 
