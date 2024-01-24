@@ -12,4 +12,4 @@ The encoder can encode and decode texts (strings). It does so by following these
 
 
 ## The RNG
-For this project, I am using an RNG based on 'numpy.random' (https://numpy.org/devdocs/reference/random/index.html)
+For this project, I am using an RNG based on `numpy.random` (https://numpy.org/devdocs/reference/random/index.html)
