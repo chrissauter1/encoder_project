@@ -1,6 +1,6 @@
 # Text Encoder
 
-This is a little project to practice object-oriented coding as well as unittesting and hosting on git.
+This simple encoder programme is a little project to practice object-oriented coding as well as unittesting. Some features such as generating a random number are already implemented in the respective modules, but I thought it would be fun to code something like this myself. 
 
 ## How does it work?
 
@@ -13,7 +13,7 @@ The encoder can encode and decode texts (strings). It does so by following these
 
 ## The RNG
 
-For this project, I am using an RNG based on `numpy.random` (https://numpy.org/devdocs/reference/random/index.html)
+For this project, I am using an RNG based on `numpy.random` (https://numpy.org/devdocs/reference/random/index.html). The RNG produces deterministic sequences based on a seed (usually an integer number). Therefore, the encoder will encode a string in exactly the same way if the same seed is used. This additionally is used to decode the encoded text as well.
 
 ## Next steps
 
